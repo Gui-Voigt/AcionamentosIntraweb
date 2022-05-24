@@ -1,10 +1,9 @@
 import Style from '../Styles/NavItem.module.css'
 
-function NavItem ({ link, cliente , handleClick}) {
+function NavItem ({ link, cliente , setLink }) {
 
-    const setLink = handleClick
-    return(
-        <p>
+        return(
+        <p onClick = {(e) => setLink(link)}>
              {cliente}
         </p>
     )

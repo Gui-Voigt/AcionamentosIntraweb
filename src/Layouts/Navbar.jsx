@@ -1,7 +1,7 @@
 import NavItem from '../Components/NavItem'
 import Styles from '../Styles/Navbar.module.css'
 
-function Navbar ({handleClick}) {
+function Navbar ({setLink}) {
     const clientes = [
         { nome : 'condominio 1',
           link : 'http://info.cern.ch/'}, 
@@ -17,6 +17,7 @@ function Navbar ({handleClick}) {
                         link={cliente.link}
                         key={cliente.nome} 
                         cliente={cliente.nome}
+                        setLink={setLink}
                     />
                 )
             )}
