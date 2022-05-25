@@ -1,0 +1,8 @@
+{
+    "condominios" : [
+
+        {"id": 1, "nome":"condomínio 1", "link":"http://localhost:3000"},
+        {"id": 2, "nome":"condomínio 2", "link":"http://info.cern.ch/"}
+        
+    ]
+}

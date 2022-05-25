@@ -1,13 +1,13 @@
 import NavItem from '../Components/NavItem'
 import Styles from '../Styles/Navbar.module.css'
+import {useState, useEffect} from 'react'
 
 function Navbar ({setLink}) {
-    const clientes = [
-        { nome : 'condominio 1',
-          link : 'http://info.cern.ch/'}, 
-        { nome : 'condominio 2',
-          link : 'http://localhost:3000'}
-    ]
+    const [clientes, setClientes] = useState([])
+
+    useEffect( () => {
+        dbConnect(setClientes)
+    },[]) 
 
     return(
         <nav>
@@ -23,6 +23,20 @@ function Navbar ({setLink}) {
             )}
         </nav>
     )
+}
+
+function dbConnect(setClientes){
+    fetch("http://localhost:5000/condominios", {
+            method: "GET",
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+    })
+    .then((resp) => resp.json())
+    .then((data) => {setClientes(data)})
+    .catch((err) => console.log(err))
+
+
 }
 
 export default Navbar
